@@ -1,0 +1,30 @@
+[window]
+padding = { x = 10, y =10 }
+dynamic_padding = true
+decorations = "None" # Без рамки
+opacity = 0.8
+decorations_theme_variant = "None"
+# level = "AlwaysOnTop" # Если охота видеть поверх остальных окон
+dimensions = { columns = 75, lines = 35 }
+
+[terminal.shell]
+program = "wsl.exe"
+args = ["-d", "Ubuntu-24.04", "--cd", "~"]
+
+[font]
+size = 15
+
+[font.normal]
+family = "JetBrainsMonoNL Nerd Font"
+style = "Regular"
+
+[cursor.style]
+shape = "Beam"
+blinking = "On"
+
+[cursor]
+blink_interval = 1000
+thickness = 0.17
+
+[mouse]
+hide_when_typing = true
