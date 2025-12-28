@@ -1,0 +1,113 @@
+@import "frappe.css";
+
+/* Общая типографика */
+* {
+  font-family: "JetBrainsMono Nerd Font";
+  font-size: 12px;
+  min-height: 0;
+}
+
+/* Прозрачный фон у окна; рисуем “пилюлю” через внутренний контейнер */
+window#waybar {
+  background: transparent;
+}
+
+/* Все модули как “чипы” */
+#workspaces,
+#window,
+#clock,
+#pulseaudio,
+#network,
+#bluetooth,
+#battery,
+#language,
+#tray {
+  background-color: alpha(@crust, 0.72);
+  border: 1px solid alpha(@overlay0, 0.45);
+  border-radius: 14px;
+  padding: 6px 10px;
+  color: @text;
+}
+
+/* Левый блок: воркспейсы */
+#workspaces {
+  padding: 4px 6px;
+}
+
+#workspaces button {
+  margin: 0 3px;
+  padding: 2px 8px;
+  border-radius: 10px;
+  color: @subtext1;
+  background: transparent;
+  border: 1px solid transparent;
+  transition: 120ms ease;
+}
+
+#workspaces button:hover {
+  background: alpha(@surface0, 0.6);
+  border: 1px solid alpha(@overlay0, 0.5);
+  color: @text;
+}
+
+#workspaces button.active {
+  background: alpha(@mauve, 0.85);
+  color: @base;
+  border: 1px solid alpha(@mauve, 0.95);
+}
+
+#workspaces button.urgent {
+  background: alpha(@red, 0.85);
+  color: @base;
+  border: 1px solid alpha(@red, 0.95);
+}
+
+/* Заголовок окна */
+#window {
+  color: @subtext0;
+}
+
+/* Центр */
+#clock {
+  background-color: alpha(@mantle, 0.72);
+  border: 1px solid alpha(@overlay0, 0.45);
+  color: @lavender;
+}
+
+/* Правые индикаторы — чуть разными акцентами */
+#language {
+  color: @rosewater;
+  margin: 0px 20px 0px 0px;
+}
+#pulseaudio { color: @sky; }
+#network { color: @teal; }
+#bluetooth { color: @sapphire; }
+#battery { color: @green; }
+
+#pulseaudio.muted {
+  color: @overlay1;
+}
+
+#battery.warning {
+  color: @yellow;
+}
+
+#battery.critical {
+  color: @red;
+}
+
+/* Tray иконки */
+#tray {
+  padding: 6px 8px;
+}
+
+#tray menu {
+  background: @base;
+  color: @text;
+  border: 1px solid alpha(@overlay0, 0.45);
+  border-radius: 12px;
+}
+
+
+
+

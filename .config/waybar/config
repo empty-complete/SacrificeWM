@@ -1,0 +1,92 @@
+{
+  "layer": "top",
+  "position": "top",
+  "height": 36,
+  "spacing": 10,
+  "margin-top": 10,
+  "margin-left": 12,
+  "margin-right": 12,
+
+  "modules-left": [
+    "hyprland/workspaces",
+    "hyprland/window"
+  ],
+  "modules-center": [
+    "clock"
+  ],
+  "modules-right": [
+    "hyprland/language",
+    "pulseaudio",
+    "network",
+    "bluetooth",
+    "battery",
+    "tray",
+  ],
+
+  "hyprland/workspaces": {
+    "format": "{name}",
+    "on-click": "activate",
+    "all-outputs": true,
+    "disable-scroll": true
+  },
+
+  "hyprland/window": {
+    "format": "  {}",
+    "max-length": 60,
+    "separate-outputs": true
+  },
+  "hyprland/language": {
+	"format": "{}",
+	"format-en": "🇬🇧 EN",
+	"format-ru": "🇷🇺 RU",
+	"on-click": "hyprctl switchxkblayout all next"
+  },
+
+  "clock": {
+    "format": "  {:%a %d %b  %H:%M}",
+    "tooltip-format": "<big>{:%Y-%m-%d}</big>\n<tt>{calendar}</tt>"
+  },
+
+  "pulseaudio": {
+    "format": "{icon}  {volume}%",
+    "format-muted": "󰝟  muted",
+    "format-icons": {
+      "default": ["󰕿", "󰖀", "󰕾"]
+    },
+    "on-click": "pavucontrol",
+    "scroll-step": 5
+  },
+
+  "network": {
+    "format-wifi": "  {signalStrength}%",
+    "format-ethernet": "󰈀  wired",
+    "format-disconnected": "󰖪  offline",
+    "tooltip-format": "{ifname}\n{ipaddr}\n{essid} {frequency}MHz"
+  },
+
+  "bluetooth": {
+    "format": "  {status}",
+    "format-disabled": "  off",
+    "format-off": "  off",
+    "format-on": "  on",
+    "format-connected": "  {num_connections}",
+    "tooltip-format": "{controller_alias}\n{num_connections} connected"
+  },
+
+  "battery": {
+    "states": {
+      "warning": 25,
+      "critical": 12
+    },
+    "format": "{icon}  {capacity}%",
+    "format-charging": "󰂄  {capacity}%",
+    "format-plugged": "󰚥  {capacity}%",
+    "format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+    "tooltip-format": "{timeTo}\n{power}W"
+  },
+
+  "tray": {
+    "icon-size": 18,
+    "spacing": 8
+  },
+}
