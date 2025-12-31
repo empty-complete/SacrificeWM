@@ -1,8 +1,0 @@
-[general]
-import = [
-"themes/catppuccin_frappe.toml",
-"profiles/main.toml",
-]
-
-
-
