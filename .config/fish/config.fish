@@ -1,8 +1,13 @@
-if status is-interactive
-	fastfetch
+# Excecute Hyprland
+if [ (tty) = "/dev/tty1" ]
+    exec Hyprland
 end
 
-function fish_greeting; end
+if status is-interactive
+	fastfetch
+	function fish_greeting; end
+end
+
 
 zoxide init fish | source
 
@@ -19,7 +24,4 @@ alias dot='git --git-dir=/home/empty-complete/.dotfiles --work-tree=/home/empty-
 source ~/.config/fish/theme.fish
 
 # Tide settings
-# Excecute Hyprland
-if [ (tty) = "/dev/tty1" ]
-    exec Hyprland
-end
+

@@ -1,0 +1,167 @@
+{
+  "layer": "top",
+  "position": "top",
+  "height": 36,
+  "spacing": 10,
+  "margin-top": 10,
+  "margin-left": 12,
+  "margin-right": 12,
+
+  "modules-left": [
+    "hyprland/workspaces",
+    "hyprland/window"
+  ],
+  "modules-center": [
+    "clock"
+  ],
+  "modules-right": [
+    "hyprland/language",
+	"group/hardware",
+    "pulseaudio",
+    "network",
+    "bluetooth",
+    "battery",
+    "tray",
+	"group/group-power"
+  ],
+
+  "hyprland/workspaces": {
+	"format": "{icon}",
+	"format-icons": {
+		"1": "󰌢 ",
+		"2": "󰍹 ",
+		"3": " ",
+		"4": "󰈹 ",
+		"5": " ",
+		"active": " ",
+		"default": " "
+	},
+       "persistent-workspaces": {
+             "HDMI-A-1": [ 2, 3, 4, 5, 6 ], // 5 workspaces by default on every monitor
+             "eDP-1": [ 1, 2 ] // but only three on HDMI-A-1
+       }
+  },
+
+  "hyprland/window": {
+    "format": "  {}",
+    "max-length": 60,
+    "separate-outputs": true
+  },
+  "hyprland/language": {
+	"format": "{}",
+	"format-en": "󰌌 EN",
+	"format-ru": "󰌌 RU",
+	"on-click": "hyprctl switchxkblayout all next"
+  },
+
+  "group/hardware": {
+	  "orientation": "inherit",
+	  "modules": [
+		"cpu",
+		"memory",
+		"temperature"
+	  ]
+  },
+
+  "memory": {
+    "format": "  {used} GiB",
+	"tooltip": false
+  },
+
+  "temperature": {
+	"format": " {temperatureC}°C",
+	"critical-threshold": 70,
+	"format-critical": " {temperatureC}°C",
+	"tooltip": false
+  },
+
+  "cpu": {
+	  "format": " {}%",
+	  "tooltip": false
+  },
+
+  "clock": {
+    "format": "{:%H:%M}",
+	"format-alt": "{:%b %d %a %R} ",
+    "tooltip-format": "<tt><small>{calendar}</small></tt>"
+  },
+
+  "pulseaudio": {
+    "format": "{icon}  {volume}%",
+    "format-muted": "󰝟  muted",
+    "format-icons": {
+      "default": ["󰕿", "󰖀", "󰕾"]
+    },
+    "on-click": "pavucontrol",
+    "scroll-step": 10
+  },
+
+  "network": {
+    "format-wifi": "{icon}",
+	"format-alt": "{bandwidthUpBytes}",
+    "format-icons": ["󰤟 ", "󰤢 ", "󰤥 ", "󰤨 "],
+    "format-ethernet": "󰈀 ",
+    "format-disconnected": "󰖪 ",
+    "tooltip-format": "{ifname}\n{ipaddr}\n{essid} {frequency}MHz"
+  },
+
+  "bluetooth": {
+    "format": "",
+    "format-disabled": "  off",
+    "format-off": "  off",
+    "format-on": "  on",
+    "format-connected": "",
+    "tooltip-format": "{controller_alias}\n{num_connections} connected"
+  },
+
+  "battery": {
+    "states": {
+      "warning": 25,
+      "critical": 12
+    },
+    "format": "{icon}  {capacity}%",
+    "format-charging": "󰂄  {capacity}%",
+    "format-plugged": "󰚥  {capacity}%",
+    "format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+    "tooltip-format": "{timeTo}\n{power}W"
+  },
+
+  "tray": {
+    "icon-size": 15,
+    "spacing": 8
+  },
+  "group/group-power": {
+    "orientation": "inherit",
+    "drawer": {
+        "transition-duration": 200,
+        "children-class": "not-power",
+        "transition-left-to-right": false
+    },
+	"modules": [
+		"custom/power", // First element is the "group leader" and won't ever be hidden
+		"custom/quit",
+		"custom/lock",
+		"custom/reboot"
+	]
+  },
+  "custom/quit": {
+    "format": " 󰗼 ",
+    "tooltip": false,
+    "on-click": "hyprctl dispatch exit"
+  },
+  "custom/lock": {
+    "format": " 󰍁 ",
+    "tooltip": false,
+    "on-click": "hyprlock"
+  },
+  "custom/reboot": {
+    "format": " 󰜉 ",
+    "tooltip": false,
+    "on-click": "reboot"
+  },
+  "custom/power": {
+    "format": "  ",
+    "tooltip": false,
+    "on-click": "shutdown now"
+  }
+}
